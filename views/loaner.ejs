@@ -12,19 +12,11 @@
 <body>
   <nav>
     <div class="search-bar">
-      <input type="text" id="search" placeholder="Search loaner...">
-      <div class="suggestions" id="suggestions">
-        <% loaner.forEach(l=> { %>
-          <div class="suggestion">
-            <%= l.loanername %>
-          </div>
-          <% }) %>
-      </div>
 
       <div class="profile-btn" onclick="toggleSidebar()">
         <img
           src="https://images.squarespace-cdn.com/content/v1/5b328976aa49a1b7b46b89c3/1530039440176-O24B7OCR4WPIAI62JZTW/CompSci.High_Circle_Logo.png?format=500w"
-          alt="Profile" />
+          alt="Profile" height="50px" />
       </div>
 
 
@@ -64,15 +56,13 @@
         <p><strong>Date Taken:</strong>
           <%= loaner[i].datetaken %>
         </p>
-
-
         <form onsubmit="editstatus(event, '<%= loaner[i]._id %>')">
           <input type="text" name="working" value="" />
-          <button type="submit" class="update-btn">Change Status</button>
+          <div class="button-container">
+            <button type="submit" class="update-btn">Change Status</button>
+            <button type="button" class="update-btn" onclick="deletebutn('<%= loaner[i]._id %>')">Return</button>
+          </div>
         </form>
-
-        <button class="update-btn" onclick="deletebutn('<%= loaner[i]._id %>')">Return</button>
-
         <!-- Link this to app.patch route -->
       </div>
 
