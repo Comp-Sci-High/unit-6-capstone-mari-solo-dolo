@@ -1,18 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
 
-<link rel="stylesheet" href="/style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Loaner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
 
-<form action="/loaners/save" method="POST" id="createForm">
-    <label>Loaner Name:</label>
-    <input type= "text" name="loanername" required>
+<body>
+  <form>
+    <label>name:</label>
+    <input type="text" name="loanername" required />
 
-    <label>Status:</label>
-    <input type= "text" name="working" value="true">
+    <label>isworking?:</label>
+    <input type="text" name="working" required />
 
-    <label>Student:</label>
-    <input type= "text" name="student" required>
+    <label>Student Assigned:</label>
+    <input type="text" name="student" required />
 
-    <label>Date Taken:</label>
-    <input type= "text" name="datetaken" required>
+    <label>date taken:</label>
+    <input type="text" name="datetaken" required />
 
-    <button type= "submit">ADD</button>
+    <button type="submit">ADD</button>
   </form>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>
