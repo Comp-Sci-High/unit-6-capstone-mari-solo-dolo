@@ -2,31 +2,35 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add Loaner</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Loaner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
 </head>
 
 <body>
-  <form>
-    <label>name:</label>
-    <input type="text" name="loanername" required />
+    <form>
+        <label>name:</label>
+        <input type="text" name="loanername" required />
 
-    <label>isworking?:</label>
-    <input type="text" name="working" required />
+        <label>status:</label>
+        <select name="working">
+        <option value="working">Working</option>
+        <option value="broken">Broken</option>
+        </select>
+        <label>Student Assigned:</label>
+        <input type="text" name="student" required />
 
-    <label>Student Assigned:</label>
-    <input type="text" name="student" required />
+        <label>date taken:</label>
+        <input type="date" name="datetaken" required />
 
-    <label>date taken:</label>
-    <input type="text" name="datetaken" required />
+        <button type="submit">ADD</button>
+    </form>
 
-    <button type="submit">ADD</button>
-  </form>
 
-  <script src="/script.js"></script>
+
+    <script src="/script.js"></script>
 </body>
 
 </html>

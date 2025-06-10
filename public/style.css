@@ -39,12 +39,18 @@ nav {
 .suggestions {
   position: absolute;
   top: 100%;
-  background: white;
+  background: rgb(187, 14, 14);
   border: 1px solid #157103;
   width: 50%;
   max-height: 200px; /* Limit height, enable scroll */
   overflow-y: auto;
   z-index: 10; /* Ensure it sits above other elements */
+  display: none; /* Hide suggestions by default */
+}
+
+/* Show suggestions only if input is NOT placeholder-shown (i.e. user typed something) */
+.search-bar input:not(:placeholder-shown) + .suggestions {
+  display: block;
 }
 
 /* Individual suggestion item */
@@ -59,23 +65,20 @@ nav {
 }
 
 /* Profile button in navbar */
-.profile-btn {
-  background: white;
-  border-radius: 5px;
-  width: 40px;
-  height: 40px;
+.profile-btn .pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
 }
 
-/* Circle avatar inside profile button */
-.profile-btn .pic {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: grey; /* Placeholder profile image */
+.profile-btn .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Sidebar menu (initially hidden) */
@@ -129,19 +132,28 @@ nav {
   background: white;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Light shadow */
+  padding: 0.75rem;         /* Reduced padding for minimalist look */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08); /* Lighter shadow */
+  font-size: 0.9rem;       /* Smaller font */
+  max-width: 280px;        /* Smaller max width */
+  margin: 0 auto;          /* Center cards inside grid cells */
+}
+
+/* Slightly smaller text inside cards */
+.card p {
+  margin: 0.25rem 0;
 }
 
 /* Update button inside card */
 .update-btn {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   background: #2196f3; /* Blue button */
   color: white;
   border: none;
-  padding: 0.4rem 0.8rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 0.85rem;
 }
 
 /* Popup modal for deleting loaners */
@@ -229,4 +241,3 @@ form button {
 form button:hover {
   background: #43a047;
 }
-

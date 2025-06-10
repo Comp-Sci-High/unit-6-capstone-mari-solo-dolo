@@ -24,9 +24,9 @@ startServer();
 
 const loanSchema = new mongoose.Schema({
   loanername: { type: String },
-  working: { type: Boolean, default: true },
+  working: { type: String, default: true },
   student: { type: String, required: true },
-  datetaken: { type: String },
+  datetaken: { type: Date },
 })
 
 const Loaner = mongoose.model("Loaner", loanSchema, "Loaners")

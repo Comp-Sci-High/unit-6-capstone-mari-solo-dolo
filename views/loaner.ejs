@@ -11,18 +11,28 @@
 
 <body>
   <nav>
-    <div class="search-bar">
-      <input type="text" id="search" placeholder="Search loaner...">
-      <div class="suggestions" id="suggestions"></div>
-    </div>
-    <div class="profile-btn" onclick="toggleSidebar()">
-      <div class="pic"></div>
+    <div class="search-bar">      
+
+      <div class="profile-btn" onclick="toggleSidebar()">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/5b328976aa49a1b7b46b89c3/1530039440176-O24B7OCR4WPIAI62JZTW/CompSci.High_Circle_Logo.png?format=500w"
+          height="50px" alt="Profile" />
+      </div>
+
+
+
     </div>
   </nav>
 
   <div class="sidebar" id="sidebar">
-    <h3>Account Menu</h3>
-    <!-- add more account options here -->
+    <h3>compscihigh/h3>
+      <p>447 Wales Avenue
+        Bronx, New York 10455
+
+        (347) 352-1528
+
+        info@compscihigh.org</p>
+      <!-- add more account options here -->
   </div>
 
   <div class="actions">
@@ -31,27 +41,42 @@
 
   <div class="container" id="loanerCards">
 
-    <% for (let i = 0; i < loaner.length; i++) { %>
+    <% for (let i=0; i < loaner.length; i++) { %>
 
-<div class="card">
-          <p><strong>Name:</strong> <%= loaner[i].loanername %> </p>
-          <p><strong>Status:</strong> <%= loaner[i].working %> </p>
-          <p><strong>Student:</strong> <%= loaner[i].student %> </p>
-          <p><strong>Date Taken:</strong> <%= loaner[i].datetaken %> </p>
-          <button class="update-btn">Update</button>
-          <!-- Link this to app.patch route -->
-        </div>
+      <div class="card">
+  <p><strong>Loaner Name:</strong> <%= loaner[i].loanername %></p>
+  <p><strong>Status:</strong> <%= loaner[i].working %></p>
+  <p><strong>Student:</strong> <%= loaner[i].student %></p>
+  <p><strong>Date Taken:</strong> <%= loaner[i].datetaken %></p>
+
+  <div class="card-actions">
+    <form onsubmit="editstatus(event, '<%= loaner[i]._id %>')" class="inline-form">
+      <input type="text" name="working" placeholder="New status..." />
+      <button type="submit" class="update-btn">Change Status</button>
+    </form>
+
+    <button class="update-btn" onclick="deletebutn('<%= loaner[i]._id %>')">Return</button>
+  </div>
+</div>
+
+
+        <button class="update-btn" onclick="deletebutn('<%= loaner[i]._id %>')">Return</button>
+
+        <!-- Link this to app.patch route -->
+      </div>
 
       <% } %>
 
   </div>
 
   </div>
-  
+
   <script>
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('active');
     }
+
+
 
     // function showDeletePopup() {
     //   document.getElementById('deletePopup').style.display = 'block';
@@ -90,7 +115,12 @@
     //     suggestionsBox.style.display = 'none';
     //   }
     // });
+
+
   </script>
+
+  <script src="/script.js"></script>
+
 </body>
 
 </html>
