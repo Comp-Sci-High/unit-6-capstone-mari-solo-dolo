@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loaner Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <nav>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search loaner...">
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+    <div class="profile-btn" onclick="toggleSidebar()">
+      <div class="pic"></div>
+    </div>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+    <h3>Account Menu</h3>
+    <!-- add more account options here -->
+  </div>
+
+  <div class="actions">
+    <a href="/form.html" class="add-btn">Add Loaner</a>
+  </div>
+
+  <div class="container" id="loanerCards">
+
+    <% for (let i = 0; i < loaner.length; i++) { %>
+
+<div class="card">
+          <p><strong>Name:</strong> <%= loaner[i].loanername %> </p>
+          <p><strong>Status:</strong> <%= loaner[i].working %> </p>
+          <p><strong>Student:</strong> <%= loaner[i].student %> </p>
+          <p><strong>Date Taken:</strong> <%= loaner[i].datetaken %> </p>
+          <button class="update-btn">Update</button>
+          <!-- Link this to app.patch route -->
+        </div>
+
+      <% } %>
+
+  </div>
+
+  </div>
+  
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    // function showDeletePopup() {
+    //   document.getElementById('deletePopup').style.display = 'block';
+    // }
+
+    // function confirmDelete(confirm) {
+    //   if (confirm) {
+    //     // Use fetch or axios to call app.delete route with selected IDs
+    //     alert("Deleting selected loaners...");
+    //   }
+    //   document.getElementById('deletePopup').style.display = 'none';
+    // }
+
+    // const searchInput = document.getElementById('search');
+    // const suggestionsBox = document.getElementById('suggestions');
+
+    // const loaners = ['LP001', 'LP002', 'HP123', 'CHROME001']; // Replace with data from DB
+
+    // searchInput.addEventListener('input', function () {
+    //   const value = this.value.toLowerCase();
+    //   suggestionsBox.innerHTML = '';
+    //   if (value) {
+    //     const matches = loaners.filter(l => l.toLowerCase().includes(value));
+    //     matches.forEach(match => {
+    //       const div = document.createElement('div');
+    //       div.className = 'suggestion';
+    //       div.textContent = match;
+    //       div.onclick = () => {
+    //         searchInput.value = match;
+    //         suggestionsBox.style.display = 'none';
+    //       }
+    //       suggestionsBox.appendChild(div);
+    //     });
+    //     suggestionsBox.style.display = 'block';
+    //   } else {
+    //     suggestionsBox.style.display = 'none';
+    //   }
+    // });
+  </script>
+</body>
+
+</html>

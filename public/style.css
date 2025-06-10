@@ -1,0 +1,232 @@
+/* styles.css */
+
+/* General page settings */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5f5; /* Light grey background */
+  color: #333; /* Dark text for contrast */
+}
+
+/* Top navigation bar styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #2e2e2e; /* Dark grey navbar */
+  color: white;
+  position: relative;
+}
+
+/* Centered search bar in nav */
+.search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Input field styling */
+.search-bar input {
+  width: 50%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Dropdown suggestion box styling */
+.suggestions {
+  position: absolute;
+  top: 100%;
+  background: white;
+  border: 1px solid #157103;
+  width: 50%;
+  max-height: 200px; /* Limit height, enable scroll */
+  overflow-y: auto;
+  z-index: 10; /* Ensure it sits above other elements */
+}
+
+/* Individual suggestion item */
+.suggestion {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+/* Hover state for suggestion */
+.suggestion:hover {
+  background: #e0e0e0;
+}
+
+/* Profile button in navbar */
+.profile-btn {
+  background: white;
+  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Circle avatar inside profile button */
+.profile-btn .pic {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: grey; /* Placeholder profile image */
+}
+
+/* Sidebar menu (initially hidden) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden to the left */
+  width: 250px;
+  height: 100%;
+  background: #3a3a3a;
+  color: white;
+  padding: 1rem;
+  transition: left 0.3s ease; /* Slide-in animation */
+  z-index: 100;
+}
+
+/* Sidebar visible state */
+.sidebar.active {
+  left: 0; /* Slide into view */
+}
+
+/* Add/Delete button container */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Spacing between buttons */
+  margin: 1rem;
+}
+
+/* Add and Delete button styling */
+.add-btn,
+.delete-btn {
+  background: #4caf50; /* Green color */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Container for loaner cards */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Individual loaner card */
+.card {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Light shadow */
+}
+
+/* Update button inside card */
+.update-btn {
+  margin-top: 1rem;
+  background: #2196f3; /* Blue button */
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Popup modal for deleting loaners */
+.delete-popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 200;
+}
+
+/* Scrollable list inside delete popup */
+.loaner-list {
+  max-height: 200px;
+  overflow-y: scroll;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Space between checkboxes */
+}
+
+/* Center the confirmation buttons */
+.confirm-delete {
+  text-align: center;
+}
+
+/* Confirmation button styles */
+.confirm-delete button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #f44336; /* Red for "No" */
+  color: white;
+  cursor: pointer;
+}
+
+/* Green style for the "Yes" button */
+.confirm-delete button:last-child {
+  background-color: #4caf50;
+}
+
+form {
+  max-width: 500px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+form label {
+  font-weight: 600;
+}
+
+form input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+form button:hover {
+  background: #43a047;
+}
+
